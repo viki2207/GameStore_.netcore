@@ -110,11 +110,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kisha\\OneDrive\\Desktop\\Asp.netwithreact\\GameStore\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "C:\\Users\\kisha\\OneDrive\\Desktop\\LINUX\\GameStore_.netcore\\OneDrive\\Desktop\\Asp.netwithreact\\GameStore\\WebApplication1\\WebApplication1.csproj",
       "projectName": "WebApplication1",
-      "projectPath": "C:\\Users\\kisha\\OneDrive\\Desktop\\Asp.netwithreact\\GameStore\\WebApplication1\\WebApplication1.csproj",
+      "projectPath": "C:\\Users\\kisha\\OneDrive\\Desktop\\LINUX\\GameStore_.netcore\\OneDrive\\Desktop\\Asp.netwithreact\\GameStore\\WebApplication1\\WebApplication1.csproj",
       "packagesPath": "C:\\Users\\kisha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kisha\\OneDrive\\Desktop\\Asp.netwithreact\\GameStore\\WebApplication1\\obj\\",
+      "outputPath": "C:\\Users\\kisha\\OneDrive\\Desktop\\LINUX\\GameStore_.netcore\\OneDrive\\Desktop\\Asp.netwithreact\\GameStore\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -142,6 +142,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -172,7 +177,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

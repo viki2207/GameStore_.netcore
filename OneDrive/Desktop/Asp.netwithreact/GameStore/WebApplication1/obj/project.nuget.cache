@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZNtDQBBEcWZ8tqExb6rdHlJO0HsCBqxEY8e1PAoIwkTL1wTGIty9t4I16k5ISgbTwWt6+KvW1p5nSnZjK/wndg==",
+  "dgSpecHash": "tdr4vnOXBhg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\kisha\\OneDrive\\Desktop\\Asp.netwithreact\\GameStore\\WebApplication1\\WebApplication1.csproj",
+  "projectFilePath": "C:\\Users\\kisha\\OneDrive\\Desktop\\LINUX\\GameStore_.netcore\\OneDrive\\Desktop\\Asp.netwithreact\\GameStore\\WebApplication1\\WebApplication1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kisha\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
     "C:\\Users\\kisha\\.nuget\\packages\\minimalapis.extensions\\0.11.0\\minimalapis.extensions.0.11.0.nupkg.sha512",
