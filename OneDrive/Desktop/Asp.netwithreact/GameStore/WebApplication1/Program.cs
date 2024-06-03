@@ -5,9 +5,7 @@ using WebApplication1.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddSingleton<IGamesRespository, InMeMGamesRespository>();
-var connString = builder.Configuration.GetConnectionString("GameStoreContext");
-builder.Services.AddSqlServer<GameStoreContext>(connString);
+builder.Services.AddRepositories(builder.Configuration);
 var app = builder.Build();
 app.Services.IntializeDb();
 app.MapGamesEndPoints();
