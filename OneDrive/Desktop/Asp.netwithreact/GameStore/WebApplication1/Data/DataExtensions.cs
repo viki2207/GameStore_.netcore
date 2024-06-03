@@ -6,11 +6,11 @@ namespace WebApplication1.Data
 {
     public static class DataExtensions
     {
-        public static void IntializeDb(this IServiceProvider serviceProvider)
+        public static async Task IntializeDbAsync(this IServiceProvider serviceProvider)
         {
             using var scope = serviceProvider.CreateScope();
             var DbContext = scope.ServiceProvider.GetRequiredService<GameStoreContext>();
-            DbContext.Database.Migrate();
+            await DbContext.Database.MigrateAsync();
         }
         public static IServiceCollection AddRepositories(this IServiceCollection services,
         IConfiguration configuration)

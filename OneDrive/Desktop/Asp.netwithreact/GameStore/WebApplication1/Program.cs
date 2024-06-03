@@ -7,6 +7,6 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRepositories(builder.Configuration);
 var app = builder.Build();
-app.Services.IntializeDb();
+await app.Services.IntializeDbAsync();
 app.MapGamesEndPoints();
 app.Run();

@@ -20,19 +20,15 @@ namespace WebApplication1.EndPoints
         {
             //InMeMGamesRespository gamesRepository = new InMeMGamesRespository();
             var group = routes.MapGroup("/games").WithParameterValidation();
-            group.MapGet("/", (IGamesRespository gamesRepository) =>
+            group.MapGet("/", async (IGamesRespository gamesRepository) =>
+          (await gamesRepository.GetAllAsync()).Select(Game => Game.AsDto()));
+            group.MapGet("/{id}", async (IGamesRespository gamesRepository, int id) =>
             {
-                var games = gamesRepository.GetAll().Select(game => game.AsDto());
-                return JsonSerializer.Serialize(games); // Serialize the result to JSON
-            });
-
-            group.MapGet("/{id}", (IGamesRespository gamesRepository, int id) =>
-            {
-                Game? game = gamesRepository.Get(id);
+                Game? game = await gamesRepository.GetAsync(id);
                 return game is null ? Results.NotFound() : Results.Ok(game.AsDto());
             }).WithName(GetGameEndpointName);
 
-            group.MapPost("/", (IGamesRespository gamesRepository, CreateGameDto gameDto) =>
+            group.MapPost("/", async (IGamesRespository gamesRepository, CreateGameDto gameDto) =>
             {
                 Game game = new()
                 {
@@ -43,14 +39,14 @@ namespace WebApplication1.EndPoints
                     ImageUri = gameDto.ImageUri,
 
                 };
-                gamesRepository.Create(game);
+                await gamesRepository.CreateAsync(game);
                 return Results.CreatedAtRoute(GetGameEndpointName, new { id = game.Id }, game);
             });
 
 
-            group.MapPut("/{id}", (IGamesRespository gamesRepository, int id, UpdateGameDto updatedGameDto) =>
+            group.MapPut("/{id}", async (IGamesRespository gamesRepository, int id, UpdateGameDto updatedGameDto) =>
             {
-                Game? existingGame = gamesRepository.Get(id);
+                Game? existingGame = await gamesRepository.GetAsync(id);
                 if (existingGame is null)
                 {
                     return Results.NotFound();
@@ -60,16 +56,16 @@ namespace WebApplication1.EndPoints
                 existingGame.Price = updatedGameDto.Price;
                 existingGame.ReleaseDate = updatedGameDto.ReleaseDate;
                 existingGame.ImageUri = updatedGameDto.ImageUri;
-                gamesRepository.Update(existingGame);
+                await gamesRepository.UpdateAsync(existingGame);
                 return Results.NoContent();
             });
 
-            group.MapDelete("/{id}", (IGamesRespository gamesRepository, int id) =>
+            group.MapDelete("/{id}", async (IGamesRespository gamesRepository, int id) =>
             {
-                Game? game = gamesRepository.Get(id);
+                Game? game = await gamesRepository.GetAsync(id);
                 if (game is not null)
                 {
-                    gamesRepository.Delete(id);
+                    await gamesRepository.DeleteAsync(id);
                 }
                 return Results.NoContent();
             });
